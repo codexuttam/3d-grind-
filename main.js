@@ -8,3 +8,17 @@ const cubeGeometry = new Three.BoxGeometry(1, 1, 1);
 const cubeMaterial = new Three.MeshBasicMaterial({ color: 0x00ff00 });
 const cube = new Three.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
+
+
+const light = new Three.DirectionalLight(0xffffff, 1);
+scene.add(light);
+
+const renderer = new Three.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+function animate() {
+    
+    renderer.render(scene, camera);
+}
+renderer.setAnimationLoop(animate )
